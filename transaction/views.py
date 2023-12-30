@@ -65,13 +65,19 @@ class TransactionCreateMixin(LoginRequiredMixin, CreateView):
 class DepositMoneyView(TransactionCreateMixin):
     form_class = DepositForm
     title = 'Deposit'
+    success_url = reverse_lazy('profile')
 
     def get_initial(self):
         initial = {'transaction_type': DEPOSIT}
         return initial
 
+    def form_valid(self, form):
         amount = form.cleaned_data.get('amount')
         account = self.request.user.account
+        # if not account.initial_deposit_date:
+        #     now = timezone.now()
+        #     account.initial_deposit_date = now
+        # amount = 200, tar ager balance = 0 taka new balance = 0+200 = 200
         account.balance += amount
         account.save(
             update_fields=[

@@ -11,29 +11,7 @@
 
 
 
-<!-- Displaying borrowed books in the profile page -->
-<h1>User Borrowed Books</h1>
 
-<table>
-    <thead>
-        <tr>
-            <th>Book ID</th>
-            <th>Book Name</th>
-            <th>Book Price</th>
-            <th>User Amount</th>
-        </tr>
-    </thead>
-    <tbody>
-        {% for borrow in user_borrowed_books %}
-        <tr>
-            <td>{{ borrow.book.id }}</td>
-            <td>{{ borrow.book.name }}</td>
-            <td>{{balance }}</td>
-            <td>{{ borrow.user_amount }}</td>
-        </tr>
-        {% endfor %}
-    </tbody>
-</table>
 
 
 
