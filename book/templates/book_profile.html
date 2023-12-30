@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="card mx-2">
+    <img class="card-img-top w-50 mx-auto" src={{post.image.url}} alt="">
+    <h1 class="card-title">{{post.title}}</h1>
+    <p class="card-text">{{post.content}}</p>
+    <p>{{post.author.name}}</p>
+    <p>Price: {{post.Price}} $</p>
+    <p>Quantity: {{post.quantity}}</p>
+    <p>
+        category: {% for cat in post.categorie.all %}
+        <button class="btn btn-warning btn-sm mt-2">{{cat.name}}</button>
+        {% endfor %}
+    </p>
+
+
+    {% endblock %}

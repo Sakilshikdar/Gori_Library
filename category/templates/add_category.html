@@ -1,0 +1,9 @@
+{% extends 'base.html' %} {% load crispy_forms_tags%} {% block content %}
+
+<form class="w-50 m-auto" method="post">
+    <h1>add category</h1>
+    {% csrf_token %} {{data | crispy}}
+    <button class="btn btn-primary">submit</button>
+</form>
+
+{% endblock%}
